@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+openai-whisper
+sentence-transformers
+torch
+pymongo
+python-dotenv
+soundfile
