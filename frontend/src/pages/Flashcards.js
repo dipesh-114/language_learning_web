@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 import vocabularyList from "../data/vocabulary";
+import AudioButton from "../components/AudioButton";
 
 function Flashcards() {
   const [index, setIndex] = useState(0);
@@ -9,6 +10,11 @@ function Flashcards() {
   const nextCard = () => {
     setShowAnswer(false);
     setIndex((prev) => (prev + 1) % vocabularyList.length);
+  };
+
+  const prevCard = () => {
+    setShowAnswer(false);
+    setIndex((prev) => (prev - 1 + vocabularyList.length) % vocabularyList.length);
   };
 
   const currentWord = vocabularyList[index];
@@ -27,29 +33,26 @@ function Flashcards() {
             <>
               <Typography>Japanese: {currentWord.japanese}</Typography>
               <Typography>Romaji: {currentWord.romaji}</Typography>
+              <AudioButton audioSrc={currentWord.audio} />
             </>
           )}
         </CardContent>
       </Card>
 
-      <Button
-        variant="contained"
-        color="primary"
-        style={{ marginTop: "20px" }}
-        onClick={() => setShowAnswer(!showAnswer)}
-      >
-        {showAnswer ? "Hide" : "Show Meaning"}
-      </Button>
+      <div style={{ marginTop: 20 }}>
+        <Button variant="contained" color="primary" onClick={() => setShowAnswer(!showAnswer)}>
+          {showAnswer ? "Hide" : "Show Meaning"}
+        </Button>
+      </div>
 
-      <br />
-
-      <Button
-        variant="contained"
-        style={{ marginTop: "10px" }}
-        onClick={nextCard}
-      >
-        Next Card
-      </Button>
+      <div style={{ marginTop: 12 }}>
+        <Button variant="contained" style={{ marginRight: 8 }} onClick={prevCard}>
+          Previous
+        </Button>
+        <Button variant="contained" onClick={nextCard}>
+          Next
+        </Button>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import vocabularyList from "../data/vocabulary";
+import AudioButton from "../components/AudioButton";
 
 function Vocabulary() {
   return (
@@ -15,6 +16,7 @@ function Vocabulary() {
             <Typography variant="h6">{word.english}</Typography>
             <Typography>Japanese: {word.japanese}</Typography>
             <Typography>Romaji: {word.romaji}</Typography>
+            <AudioButton text={word.japanese} />
           </CardContent>
         </Card>
       ))}

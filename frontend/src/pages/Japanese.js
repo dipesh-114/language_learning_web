@@ -7,26 +7,14 @@ function Japanese() {
       <h2>Japanese Lessons</h2>
 
       <Link to="/japanese/hiragana" style={{ textDecoration: "none" }}>
-        <LessonCard 
-          title="Hiragana"
-          description="Learn the basic Japanese script."
-        />
+        <LessonCard title="Hiragana" description="Learn the basic Japanese script." />
       </Link>
 
-      <LessonCard 
-        title="Katakana"
-        description="Learn the script for foreign words."
-      />
+      <LessonCard title="Katakana" description="Learn the script for foreign words." />
 
-      <LessonCard 
-        title="Basic Vocabulary"
-        description="Numbers, colors, animals, greetings."
-      />
+      <LessonCard title="Basic Vocabulary" description="Numbers, colors, animals, greetings." />
 
-      <LessonCard 
-        title="Basic Phrases"
-        description="Daily expressions like ありがとう (thank you)."
-      />
+      <LessonCard title="Basic Phrases" description="Daily expressions like ありがとう (thank you)." />
     </div>
   );
 }

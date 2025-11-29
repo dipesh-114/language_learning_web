@@ -1,7 +1,6 @@
 import AudioButton from "../components/AudioButton";
 
 function Hiragana() {
-
   const hiraganaList = [
     { symbol: "あ", romaji: "a", audio: "/assets/audio/hiragana_a.mp3" },
     { symbol: "い", romaji: "i", audio: "/assets/audio/hiragana_i.mp3" },
@@ -15,23 +14,22 @@ function Hiragana() {
       <h2>Hiragana Chart</h2>
 
       {hiraganaList.map((item, index) => (
-        <div 
+        <div
           key={index}
           style={{
             padding: 10,
             marginBottom: 10,
             border: "1px solid #ccc",
-            borderRadius: 8
+            borderRadius: 8,
           }}
         >
-          <h3>{item.symbol}</h3>
-          <p>Romanji: {item.romaji}</p>
+          <h3 style={{ fontSize: 36 }}>{item.symbol}</h3>
+          <p>Romaji: {item.romaji}</p>
 
           {/* Play sound */}
-          <AudioButton audioSrc={item.audio} />
+          <AudioButton audioSrc={item.audio} text={item.symbol} />
         </div>
       ))}
-
     </div>
   );
 }
