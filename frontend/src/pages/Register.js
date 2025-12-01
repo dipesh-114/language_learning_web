@@ -1,32 +1,28 @@
 import React, { useState } from "react";
 import { TextField, Button, Card, CardContent, Typography } from "@mui/material";
 
-function Login() {
+function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
+      const res = await fetch("http://localhost:8000/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setMessage(data.detail || "Login failed");
+        setMessage(data.detail || "Registration failed");
         return;
       }
 
-      // Save token to localStorage
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("username", data.name);
-
-      setMessage("Login successful!");
-      window.location.href = "/"; // redirect to home
+      setMessage("Registration successful! Now you can login.");
     } catch (err) {
       setMessage("Error connecting to server");
     }
@@ -35,7 +31,15 @@ function Login() {
   return (
     <Card style={{ maxWidth: 400, margin: "40px auto" }}>
       <CardContent>
-        <Typography variant="h5" gutterBottom>Login</Typography>
+        <Typography variant="h5" gutterBottom>Register</Typography>
+
+        <TextField
+          fullWidth
+          label="Name"
+          margin="normal"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <TextField
           fullWidth
@@ -54,8 +58,8 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <Button variant="contained" fullWidth onClick={handleLogin} sx={{ mt: 2 }}>
-          Login
+        <Button variant="contained" fullWidth onClick={handleRegister} sx={{ mt: 2 }}>
+          Register
         </Button>
 
         <Typography sx={{ mt: 2 }} color="primary">
@@ -66,4 +70,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

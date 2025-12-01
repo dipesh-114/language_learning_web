@@ -25,15 +25,4 @@ const vocabularyList = [
   },
 ];
 
-const speakJapanese = (text) => {
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "ja-JP";
-  window.speechSynthesis.speak(utterance);
-};
-
-<Button onClick={() => speakJapanese(word.japanese)}>
-  🔊 Hear Pronunciation
-</Button>
-
-
 export default vocabularyList;

@@ -10,6 +10,9 @@ import English from "./pages/English";
 import Japanese from "./pages/Japanese";
 import Quiz from "./pages/Quiz";
 import Login from "./pages/Login";
+import Flashcards from "./pages/Flashcards";
+import Vocabulary from "./pages/Vocabulary";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -24,7 +27,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/english/vocabulary" element={<EnglishVocabulary />} />
         <Route path="/japanese/hiragana" element={<Hiragana />} />
-
+        <Route path="/flashcards" element={<Flashcards />} />
+        <Route path="/vocabulary" element={<Vocabulary />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />   
       </Routes>
     </Router>
   );

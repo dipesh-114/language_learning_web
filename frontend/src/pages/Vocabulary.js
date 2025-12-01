@@ -1,8 +1,16 @@
 import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, Button } from "@mui/material";
 import vocabularyList from "../data/vocabulary";
 
 function Vocabulary() {
+
+  // Function to speak Japanese text
+  const speakJapanese = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "ja-JP";
+    window.speechSynthesis.speak(utterance);
+  };
+
   return (
     <div style={{ padding: "20px" }}>
       <Typography variant="h4" gutterBottom>
@@ -15,6 +23,15 @@ function Vocabulary() {
             <Typography variant="h6">{word.english}</Typography>
             <Typography>Japanese: {word.japanese}</Typography>
             <Typography>Romaji: {word.romaji}</Typography>
+
+            {/* Pronunciation Button */}
+            <Button
+              variant="contained"
+              style={{ marginTop: "10px" }}
+              onClick={() => speakJapanese(word.japanese)}
+            >
+              🔊 Hear Pronunciation
+            </Button>
           </CardContent>
         </Card>
       ))}
