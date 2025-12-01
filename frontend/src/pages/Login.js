@@ -1,68 +1,9 @@
-import React, { useState } from "react";
-import { TextField, Button, Card, CardContent, Typography } from "@mui/material";
-
 function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleLogin = async () => {
-    try {
-      const res = await fetch("http://localhost:8000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setMessage(data.detail || "Login failed");
-        return;
-      }
-
-      // Save token to localStorage
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("username", data.name);
-
-      setMessage("Login successful!");
-      window.location.href = "/"; // redirect to home
-    } catch (err) {
-      setMessage("Error connecting to server");
-    }
-  };
-
   return (
-    <Card style={{ maxWidth: 400, margin: "40px auto" }}>
-      <CardContent>
-        <Typography variant="h5" gutterBottom>Login</Typography>
-
-        <TextField
-          fullWidth
-          label="Email"
-          margin="normal"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <TextField
-          fullWidth
-          label="Password"
-          type="password"
-          margin="normal"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <Button variant="contained" fullWidth onClick={handleLogin} sx={{ mt: 2 }}>
-          Login
-        </Button>
-
-        <Typography sx={{ mt: 2 }} color="primary">
-          {message}
-        </Typography>
-      </CardContent>
-    </Card>
+    <div style={{ padding: 20 }}>
+      <h2>Login</h2>
+      <p>Login form will appear here.</p>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 import AudioButton from "../components/AudioButton";
 
 function EnglishVocabulary() {
-
   const words = [
     { word: "Apple", meaning: "A fruit that is red, green, or yellow.", audio: "/assets/audio/apple.mp3" },
     { word: "Book", meaning: "A set of written pages.", audio: "/assets/audio/book.mp3" },
@@ -15,23 +14,22 @@ function EnglishVocabulary() {
       <h2>English Basic Vocabulary</h2>
 
       {words.map((item, index) => (
-        <div 
-          key={index} 
+        <div
+          key={index}
           style={{
             marginBottom: 15,
             padding: 10,
             border: "1px solid #ccc",
-            borderRadius: 8
+            borderRadius: 8,
           }}
         >
           <h3>{item.word}</h3>
           <p>{item.meaning}</p>
 
           {/* Audio Button */}
-          <AudioButton audioSrc={item.audio} />
+          <AudioButton audioSrc={item.audio} text={item.word} />
         </div>
       ))}
-
     </div>
   );
 }

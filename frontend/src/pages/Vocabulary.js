@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import vocabularyList from "../data/vocabulary";
+import AudioButton from "../components/AudioButton";
 
 function Vocabulary() {
 
@@ -23,15 +24,7 @@ function Vocabulary() {
             <Typography variant="h6">{word.english}</Typography>
             <Typography>Japanese: {word.japanese}</Typography>
             <Typography>Romaji: {word.romaji}</Typography>
-
-            {/* Pronunciation Button */}
-            <Button
-              variant="contained"
-              style={{ marginTop: "10px" }}
-              onClick={() => speakJapanese(word.japanese)}
-            >
-              🔊 Hear Pronunciation
-            </Button>
+            <AudioButton text={word.japanese} />
           </CardContent>
         </Card>
       ))}
