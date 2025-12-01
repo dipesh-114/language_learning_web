@@ -1,10 +1,12 @@
-function NotFound() {
+// frontend/src/pages/NotFound.js
+import React from "react";
+import { Box, Typography } from "@mui/material";
+
+export default function NotFound(){
   return (
-    <div style={{ padding: 20 }}>
-      <h2>404 — Page Not Found</h2>
-      <p>The page you are looking for does not exist.</p>
-    </div>
+    <Box sx={{ p:3, textAlign:"center" }}>
+      <Typography variant="h4">404 - Page not found</Typography>
+      <Typography>Check the URL or go back home.</Typography>
+    </Box>
   );
 }
-
-export default NotFound;

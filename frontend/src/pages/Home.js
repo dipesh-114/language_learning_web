@@ -1,14 +1,12 @@
-function Home() {
+// frontend/src/pages/Home.js
+import React from "react";
+import { Box, Typography } from "@mui/material";
+
+export default function Home(){
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Home</h2>
-      <p>Welcome to your language learning platform!</p>
-      <p>
-        Use the navigation bar to open English or Japanese lessons, practice with
-        flashcards, and try quizzes.
-      </p>
-    </div>
+    <Box sx={{ p:3 }}>
+      <Typography variant="h4" gutterBottom>Welcome</Typography>
+      <Typography>Learn English & Japanese with audio, quizzes and pronunciation assessment.</Typography>
+    </Box>
   );
 }
-
-export default Home;

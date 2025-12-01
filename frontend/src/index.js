@@ -1,12 +1,11 @@
-// src/index.js
+// frontend/index.js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "./theme";
+import theme from "./utils/theme"; // we'll add a small theme file
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

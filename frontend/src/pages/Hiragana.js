@@ -1,3 +1,5 @@
+// frontend/src/pages/Hiragana.js
+import React from "react";
 import AudioButton from "../components/AudioButton";
 
 function Hiragana() {
@@ -12,21 +14,10 @@ function Hiragana() {
   return (
     <div style={{ padding: 20 }}>
       <h2>Hiragana Chart</h2>
-
       {hiraganaList.map((item, index) => (
-        <div
-          key={index}
-          style={{
-            padding: 10,
-            marginBottom: 10,
-            border: "1px solid #ccc",
-            borderRadius: 8,
-          }}
-        >
+        <div key={index} style={{ padding: 10, marginBottom: 10, border: "1px solid #ccc", borderRadius: 8 }}>
           <h3 style={{ fontSize: 36 }}>{item.symbol}</h3>
           <p>Romaji: {item.romaji}</p>
-
-          {/* Play sound */}
           <AudioButton audioSrc={item.audio} text={item.symbol} />
         </div>
       ))}

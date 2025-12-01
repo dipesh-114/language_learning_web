@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 python-multipart
 pydantic
-openai-whisper
+whisper
 sentence-transformers
 torch
 pymongo
